@@ -18,13 +18,13 @@ import slidercoverFlow from './demo/slider_coverFlow'
 import sliderrenderPagination from './demo/slider_renderPagination'
 
 // 实例vue
-new Vue(sliderfade) // eslint-disable-line
-new Vue(sliderbasic) // eslint-disable-line
-new Vue(slidervariableWidth) // eslint-disable-line
+// new Vue(sliderfade) // eslint-disable-line
+// new Vue(sliderbasic) // eslint-disable-line
+// new Vue(slidervariableWidth) // eslint-disable-line
 new Vue(sliderbasicloop) // eslint-disable-line
-new Vue(slidervertical) // eslint-disable-line
-new Vue(slidermultipleSlide) // eslint-disable-line
-new Vue(slidercoverFlow) // eslint-disable-line
-new Vue(sliderrenderPagination) // eslint-disable-line
-new Vue(sliderCenter) // eslint-disable-line
+// new Vue(slidervertical) // eslint-disable-line
+// new Vue(slidermultipleSlide) // eslint-disable-line
+// new Vue(slidercoverFlow) // eslint-disable-line
+// new Vue(sliderrenderPagination) // eslint-disable-line
+// new Vue(sliderCenter) // eslint-disable-line
 

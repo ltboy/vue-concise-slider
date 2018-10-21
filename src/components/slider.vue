@@ -90,7 +90,8 @@ export default {
         pageHeight: 0,
         sliderItem: '',
         pagination: this.options.pagination === undefined ? true : this.options.pagination
-      }
+      },
+      visibile: true,
     }
   },
   computed: {
@@ -130,7 +131,7 @@ export default {
     // 组件的核心，计算当前父级需要进行的偏移,每次要遍历节点
     currentWidth: {
       get: function () {
-        if ((!this.pages.length && this.s_data.sliderLength === 0) || this.s_data.effect === 'fade' || this.s_data.effect === 'coverflow') {
+        if ((!this.pages.length && this.s_data.sliderLength === 0) || this.s_data.effect === 'fade' || this.s_data.effect === 'coverflow'|| !this.visibile) {
           return 0
         }
         let $slider
@@ -176,7 +177,7 @@ export default {
       let lastPage = currentPage - 1
       let pageWidth = this.s_data.pageWidth
       let loopedSlides = this.options.loopedSlides || 1
-      if ((!pageLength && sliderLength === 0) || this.s_data.effect === 'fade') {
+      if ((!pageLength && sliderLength === 0) || this.s_data.effect === 'fade'|| !this.visibile) {
         return 0
       }
       // let srollbar = false
@@ -306,6 +307,7 @@ export default {
       }
     },
     swipeMove (e) {
+      let offsetParent = this.$el.offsetParent
       if (this.s_data.tracking) {
         let effect = this.s_data.effect
         if (e.type === 'touchmove') {
@@ -454,6 +456,20 @@ export default {
     },
     slide (pagenum, type) {
       // 执行动画
+      if(this.$el.offsetParent === null){
+        this.visibile = false
+        type = 'animationnone'
+        if(this.data.currentPage < 0 ){
+          this.data.currentPage = this.s_data.sliderLength -1;
+        }
+        if(this.data.currentPage >= this.s_data.sliderLength){
+          this.data.currentPage = 0
+        }
+      }else {
+        this.visibile = true
+      }
+      console.log('pagenum',pagenum)
+      console.log('currentPage',this.data.currentPage)
       this.s_data.animation = true
       // 无样式滚动
       if (type === 'animationnone') {
@@ -479,6 +495,7 @@ export default {
       }
       // 添加class
       if (this.s_data.sliderLength) {
+        console.log(21321321)
         let slideDom = this.$el.getElementsByClassName('slider-wrapper')[0]
         let sliderItem = slideDom.getElementsByClassName('slider-item')
         let sliderActiveCopy = slideDom.getElementsByClassName('slider-active-copy')
