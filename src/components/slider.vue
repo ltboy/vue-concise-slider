@@ -468,8 +468,6 @@ export default {
       }else {
         this.visibile = true
       }
-      console.log('pagenum',pagenum)
-      console.log('currentPage',this.data.currentPage)
       this.s_data.animation = true
       // 无样式滚动
       if (type === 'animationnone') {
@@ -495,7 +493,6 @@ export default {
       }
       // 添加class
       if (this.s_data.sliderLength) {
-        console.log(21321321)
         let slideDom = this.$el.getElementsByClassName('slider-wrapper')[0]
         let sliderItem = slideDom.getElementsByClassName('slider-item')
         let sliderActiveCopy = slideDom.getElementsByClassName('slider-active-copy')
