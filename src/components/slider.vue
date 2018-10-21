@@ -689,6 +689,9 @@ export default {
   position: relative;
   z-index: 1;
 }
+.slider-container img{
+  -webkit-user-drag: none;
+}
 .slider-container {
   height: 100%;
   width: 100%;
